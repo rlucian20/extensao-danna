@@ -1,0 +1,118 @@
+/* Reset básico */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+ }
+ 
+ body {
+	font-family: "Poppins", sans-serif;
+ 	font-weight: 400;
+ 	font-style: normal;
+	background-color: #f4f4f4;
+	color: #333;
+	line-height: 1.6;
+	padding: 20px;
+	scroll-behavior: smooth;
+
+ }
+ header nav .logo{
+	font-weight: bold;
+ }
+
+
+ header nav .logo, header nav ul li{
+	color: #0D2848;
+ }
+
+div h1{
+	font-size: 7.5rem;
+	margin-top: 7.5rem;
+	color: #000;
+}
+
+h1 .gradiente {
+		background: linear-gradient(to right, #F0FE0A, #2AE6D3);
+		-webkit-background-clip: text; 
+		color: transparent;  
+}
+
+.cartao {
+	max-width: 20.12rem;
+}
+
+.agua{
+	margin-top: 9.375rem;
+	
+}
+.grupo-titulo-texto {
+	display: flex;
+	width: 100%;
+}
+
+.agua h3{
+	font-size: 5.125rem;
+	color: #000;
+	margin-top: 4.68rem;
+	z-index: 1;
+	margin-right: -10rem;
+	width: 50%;
+}
+
+.agua .decoracao{
+	position: absolute;	
+	z-index: 0;
+	margin-top: 15.18rem;
+}
+
+.agua .quadrado-fundo{
+	width: 100%;
+	height: 34.25rem;
+	background-color: rgba(15, 45, 82, 0.1);
+	z-index: 0;
+}
+
+
+.agua .paragrafo{
+	margin-top: 6.125rem;
+	margin-left: 15.74rem;
+
+}
+
+
+.agua .paragrafo p{
+	color: rgba(0, 0, 0, 0.7);
+	line-height: 2.2em;
+	font-size: 1.18rem;
+}
+.agua .imagens{
+	display: flex;
+}
+.agua .img-crianca{
+	width: 22rem;
+	height: 23rem;
+}
+
+
+.agua .img-garrafa{
+	width: 23rem;
+	height: 23rem;
+	margin-top: 23rem;
+}
+
+.agua .img-enchendo{
+	z-index: 1;
+	width: 27rem;
+	height: 29rem;
+	margin-top: -6rem;
+}
+
+
+.botoes{
+	position: fixed;
+
+	bottom: 2rem;
+	right: 2rem;
+	z-index: 1000;
+	cursor: pointer;
+}

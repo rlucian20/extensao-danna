@@ -1,0 +1,81 @@
+/* Reset Básico de CSS */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que o padding e a borda não aumentem as dimensões do elemento */
+}
+
+html, body {
+    /* height: 100%; */
+    font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+body {
+    background-color: #f8f9fa; /* Ajuste de fundo */
+}
+ 
+ #popup {
+	max-width: 750px;
+	padding: 20px 30px 30px 30px;
+	width: 100%;
+ }
+ 
+
+#popup .cartoes {
+	max-width: 750px;
+	width: 100%;
+	padding: 0;
+	margin-top: 30px;
+}
+
+#popup .row .card p {
+	font-size: 0.8rem;
+}
+ .titulo {
+	font-size: 3rem;
+ }
+ 
+ .subtitulo {
+	font-size: 1.5rem;
+ }
+ 
+ #timer-box {
+	margin: auto;
+ }
+ 
+ #timer-display {
+	font-size: 4rem;
+	background: linear-gradient(to right, rgba(0, 128, 255, 1), rgba(0, 255, 128, 1));
+	color: white;
+	padding: 15px;
+	border-radius: 8px;
+ }
+ 
+ /* Aumentando a grossura da barra de progresso */
+ .progress {
+	height: 30px; /* Aumenta a altura da barra de progresso */
+	margin: 15px 0 15px 0;
+ }
+ 
+ .progress-bar {
+	transition: width 0.4s ease;
+	height: 100%; /* Garante que a altura da barra de progresso seja 100% da altura da .progress */
+	border-radius: 8px;
+ }
+ 
+ /* Forçar o aumento do tamanho do SVG com a propriedade width */
+ img.img-fluid {
+	width: 300px; /* Ajuste diretamente o tamanho desejado */
+	display: block;
+	margin-left: auto;
+	margin-right: auto; /* Centraliza o logo */
+	width: 300px;
+	margin-bottom: 25px
+                
+}
+ 
