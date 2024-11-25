@@ -1,17 +1,23 @@
+// ==============================
 // Elementos DOM
+// ==============================
 const timerDisplay = document.getElementById('timer-display')
 const progressBar = document.getElementById('progress-bar')
 const startButton = document.getElementById('start-button')
 const pauseButton = document.getElementById('pause-button')
-const continueButton = document.getElementById('continue-button') // Novo botão
+const continueButton = document.getElementById('continue-button')
 const resetButton = document.getElementById('reset-button')
 
-// Comunicar com o background.js
+// ==============================
+// Função para comunicar com o background.js
+// ==============================
 function sendMessage(action) {
     chrome.runtime.sendMessage({ action })
 }
 
-// Atualizar UI com estado recebido
+// ==============================
+// Atualizar a UI com o estado recebido
+// ==============================
 function updateUI({ timeRemaining, isPaused }) {
     const minutes = Math.floor(timeRemaining / 60)
     const seconds = timeRemaining % 60
@@ -20,15 +26,17 @@ function updateUI({ timeRemaining, isPaused }) {
     timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(
         seconds
     ).padStart(2, '0')}`
+
     progressBar.style.width = `${(timeRemaining / 1800) * 100}%`
 
-    // Controla os botões
-    startButton.disabled = !isPaused && timeRemaining !== 30 * 60 // "Iniciar" só habilitado se estiver pausado e no início
-    continueButton.disabled = !isPaused || timeRemaining === 30 * 60 // "Continuar" só habilitado se estiver pausado e não no início
-    pauseButton.disabled = isPaused // "Pausar" desativado se estiver pausado
+    startButton.disabled = !isPaused && timeRemaining !== 30 * 60
+    continueButton.disabled = !isPaused || timeRemaining === 30 * 60
+    pauseButton.disabled = isPaused
 }
 
-// Atualizações em tempo real
+// ==============================
+// Atualizações em tempo real do estado
+// ==============================
 function listenToUpdates() {
     chrome.runtime.onMessage.addListener(message => {
         if (message.type === 'updateUI') {
@@ -37,7 +45,9 @@ function listenToUpdates() {
     })
 }
 
-// Inicialização
+// ==============================
+// Inicialização do estado
+// ==============================
 chrome.runtime.sendMessage({ action: 'getState' }, response => {
     if (response) {
         updateUI(response)
@@ -45,8 +55,10 @@ chrome.runtime.sendMessage({ action: 'getState' }, response => {
     }
 })
 
+// ==============================
 // Eventos de Botões
+// ==============================
 startButton.addEventListener('click', () => sendMessage('start'))
 pauseButton.addEventListener('click', () => sendMessage('pause'))
-continueButton.addEventListener('click', () => sendMessage('continue')) // Evento do novo botão
+continueButton.addEventListener('click', () => sendMessage('continue'))
 resetButton.addEventListener('click', () => sendMessage('reset'))
