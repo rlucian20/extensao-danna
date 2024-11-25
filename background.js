@@ -1,8 +1,13 @@
+// ==========================
+//  Definição de variáveis globais
+// ==========================
 let timeRemaining = 30 * 60 // 1 minuto para teste
 let isPaused = true
 let timer
 
-// Atualizar o texto no ícone
+// ===============================
+//  Funções de atualização do ícone
+// ===============================
 function updateBadge() {
     const minutes = Math.floor(timeRemaining / 60)
     const seconds = timeRemaining % 60
@@ -11,9 +16,11 @@ function updateBadge() {
     chrome.action.setBadgeBackgroundColor({ color: '#4688F1' })
 }
 
-// Iniciar o Timer
+// ============================
+//  Funções de controle do timer
+// ============================
 function startTimer() {
-    if (!isPaused || timeRemaining !== 30 * 60) return // Não iniciar se já estiver rodando ou se não for o início
+    if (!isPaused || timeRemaining !== 30 * 60) return
     isPaused = false
     timer = setInterval(() => {
         if (timeRemaining > 0) {
@@ -27,21 +34,19 @@ function startTimer() {
     }, 1000)
 
     if (timeRemaining === 0) {
-        resetTimer() // Reseta para 30 minutos
-        startTimer() // Reinicia o cronômetro
+        resetTimer()
+        startTimer()
     }
 }
 
-// Pausar o Timer
 function pauseTimer() {
     isPaused = true
     clearInterval(timer)
     broadcastState()
 }
 
-// Continuar o Timer
 function continueTimer() {
-    if (!isPaused || timeRemaining === 30 * 60) return // Não continuar se não estiver pausado ou se for o início
+    if (!isPaused || timeRemaining === 30 * 60) return
     isPaused = false
     timer = setInterval(() => {
         if (timeRemaining > 0) {
@@ -54,12 +59,11 @@ function continueTimer() {
         }
     }, 1000)
     if (timeRemaining === 0) {
-        resetTimer() // Reseta para 30 minutos
-        startTimer() // Reinicia o cronômetro
+        resetTimer()
+        startTimer()
     }
 }
 
-// Resetar o Timer
 function resetTimer() {
     isPaused = true
     clearInterval(timer)
@@ -68,7 +72,9 @@ function resetTimer() {
     broadcastState()
 }
 
-// Enviar estado para o popup.js
+// ================================
+//  Funções de comunicação de estado
+// ================================
 function broadcastState() {
     chrome.storage.local.set({ appState: { timeRemaining, isPaused } })
 
@@ -82,14 +88,15 @@ function broadcastState() {
     }
 }
 
-// Abrir a página de notificação
 function openNotificationPage() {
     chrome.tabs.create({
         url: chrome.runtime.getURL('notification.html') // Caminho para a página de notificação
     })
 }
 
-// Mensagens recebidas do popup.js
+// ===========================
+//  Listener de mensagens do popup.js
+// ===========================
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     switch (message.action) {
         case 'start':
@@ -112,5 +119,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
 })
 
-// Atualizar o ícone ao carregar
+// ============================
+//  Inicialização do ícone
+// ============================
 updateBadge()
