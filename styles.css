@@ -39,6 +39,7 @@
 	  width: 100%; 
 	  padding: 0; 
 	  margin-top: 30px;
+	  cursor: pointer;
    }
    
    /* Estilos para os parágrafos dentro dos cards */
@@ -96,4 +97,10 @@
 	  width: 300px; 
 	  margin-bottom: 25px;
    }
+
+
+   :not(a, button) {
+	cursor: default;
+ }
+  
    

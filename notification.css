@@ -21,6 +21,11 @@
 	scroll-behavior: smooth;
  }
  
+ :not(a, button) {
+	cursor: default;
+ }
+
+
  /* =======================
     Estilos para o logo no header
     ======================= */
@@ -33,6 +38,7 @@
     ======================= */
  header nav .logo, header nav ul li {
 	color: #0D2848;
+	cursor: pointer;
  }
  
  /* =======================

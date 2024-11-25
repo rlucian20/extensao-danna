@@ -1,7 +1,7 @@
 // ==========================
 //  Definição de variáveis globais
 // ==========================
-let timeRemaining = 30 * 60 // 1 minuto para teste
+let timeRemaining = 30 * 60
 let isPaused = true
 let timer
 
