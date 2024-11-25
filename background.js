@@ -1,7 +1,7 @@
 // ==========================
 //  Definição de variáveis globais
 // ==========================
-let timeRemaining = 30 * 60
+let timeRemaining = 0.1 * 60 //
 let isPaused = true
 let timer
 
@@ -20,7 +20,7 @@ function updateBadge() {
 //  Funções de controle do timer
 // ============================
 function startTimer() {
-    if (!isPaused || timeRemaining !== 30 * 60) return
+    if (!isPaused || timeRemaining !== 0.1 * 60) return
     isPaused = false
     timer = setInterval(() => {
         if (timeRemaining > 0) {
@@ -46,7 +46,7 @@ function pauseTimer() {
 }
 
 function continueTimer() {
-    if (!isPaused || timeRemaining === 30 * 60) return
+    if (!isPaused || timeRemaining === 0.1 * 60) return
     isPaused = false
     timer = setInterval(() => {
         if (timeRemaining > 0) {
@@ -67,7 +67,7 @@ function continueTimer() {
 function resetTimer() {
     isPaused = true
     clearInterval(timer)
-    timeRemaining = 30 * 60 // Resetar para 1 minuto
+    timeRemaining = 0.1 * 60 // Resetar para 1 minuto
     updateBadge()
     broadcastState()
 }
