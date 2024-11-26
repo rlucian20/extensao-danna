@@ -97,10 +97,6 @@
 	  width: 300px; 
 	  margin-bottom: 25px;
    }
-
-
-   :not(a, button) {
-	cursor: default;
- }
-  
-   
+   .cursor-pointer{
+	cursor: pointer;
+   }

@@ -29,7 +29,7 @@ function startTimer() {
             broadcastState()
         } else {
             clearInterval(timer)
-            openNotificationPage() // Abrir a página de notificação
+            fimContagemPage() // Abrir a página de notificação
         }
     }, 1000)
 
@@ -55,7 +55,7 @@ function continueTimer() {
             broadcastState()
         } else {
             clearInterval(timer)
-            openNotificationPage() // Abrir a página de notificação
+            fimContagemPage() // Abrir a página de notificação
         }
     }, 1000)
     if (timeRemaining === 0) {
@@ -88,9 +88,9 @@ function broadcastState() {
     }
 }
 
-function openNotificationPage() {
+function fimContagemPage() {
     chrome.tabs.create({
-        url: chrome.runtime.getURL('notification.html') // Caminho para a página de notificação
+        url: chrome.runtime.getURL('fimContagem.html') // Caminho para a página de notificação
     })
 }
 
