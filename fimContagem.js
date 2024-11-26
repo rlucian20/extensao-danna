@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response && response.isPaused) {
                 return // Timer pausado, não faz nada
             }
-
             const userConfirmed = confirm('Deseja reiniciar a contagem?')
             if (userConfirmed) {
                 chrome.runtime.sendMessage({ action: 'reset' })
