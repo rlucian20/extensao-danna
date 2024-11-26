@@ -16,6 +16,7 @@ function showConfirmDialog() {
             chrome.runtime.sendMessage({ action: 'reset' }) // Reseta o timer
             chrome.runtime.sendMessage({ action: 'start' }) // Inicia o timer novamente
         } else {
+            chrome.runtime.sendMessage({ action: 'reset' }) // Reseta o timer
             console.log('O usuário cancelou a ação.')
         }
     })
