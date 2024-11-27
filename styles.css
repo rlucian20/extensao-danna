@@ -23,8 +23,16 @@
    body {
 	  background-color: #f8f9fa; 
    }
+<<<<<<< HEAD
    
 
+=======
+	 
+	 :not(a, button, img, svg, .card) {
+	  cursor: default;
+	 }
+	 
+>>>>>>> c37bff361888cb30cafef00efed93962b0b7a5e7
    /* =======================
 	 Estilos para o Popup
 	 ======================= */
