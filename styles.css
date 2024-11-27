@@ -23,7 +23,11 @@
    body {
 	  background-color: #f8f9fa; 
    }
-   
+	 
+	 :not(a, button, img, svg, .card) {
+	  cursor: default;
+	 }
+	 
    /* =======================
 	 Estilos para o Popup
 	 ======================= */
