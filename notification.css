@@ -21,11 +21,10 @@
 	scroll-behavior: smooth;
  }
  
- :not(a, button) {
+ :not(a, button, img, svg, .card) {
 	cursor: default;
  }
-
-
+ 
  /* =======================
     Estilos para o logo no header
     ======================= */
@@ -56,6 +55,7 @@
  h1 .gradiente {
 	background: linear-gradient(to right, #F0FE0A, #2AE6D3);
 	-webkit-background-clip: text;
+	background-clip: text;
 	color: transparent;
  }
  
@@ -191,10 +191,10 @@
 }
 
 
- #alertas article {
-	/* padding-left: 15rem;
-	padding-right: 15rem; */
- }
+ /* #alertas article {
+	padding-left: 15rem;
+	padding-right: 15rem;
+ } */
  
  #alertas article p{
 	font-size: 18px;
